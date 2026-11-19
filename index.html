@@ -5,211 +5,298 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sushmita Hubli | Software Engineer</title>
   <meta name="description" content="Software engineer in Boston building Java and Spring Boot microservices and React and TypeScript interfaces. MS Information Systems at Northeastern, graduating December 2026. Open to full-time roles.">
-  <meta name="theme-color" content="#14122B">
+  <meta name="color-scheme" content="light dark">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sushmita Hubli | Software Engineer">
   <meta property="og:description" content="Java, Spring Boot, React, TypeScript and AWS. Open to full-time software engineer roles.">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%235B3DF5'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%23ffffff'%3ESH%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F766E'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%23ffffff'%3ESH%3C/text%3E%3C/svg%3E">
+
+  <!-- Apply saved theme before first paint to avoid a flash -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&family=Syne:wght@600..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ============ FLOATING NAV ============ -->
-  <header class="nav">
-    <a class="brand" href="#top" aria-label="Sushmita Hubli, back to top">
-      <span class="brand-mark" aria-hidden="true">SH</span>
-      <span class="brand-name">Sushmita</span>
-    </a>
-    <nav aria-label="Primary">
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a class="btn btn-sm" href="#contact">Hire me</a>
-  </header>
+  <div class="shell">
 
-  <main id="main">
+    <!-- ============ SIDEBAR / TOP BAR ============ -->
+    <header class="side" id="side">
+      <div class="side-head">
+        <a class="who" href="#top" aria-label="Sushmita Hubli, back to top">
+          <span class="who-mark" aria-hidden="true">SH</span>
+          <span class="who-text">
+            <span class="who-name">Sushmita Hubli</span>
+            <span class="who-role">Software Engineer</span>
+          </span>
+        </a>
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="side-body">
+          <span class="sr-only">Menu</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
 
-    <!-- ============ HERO: BENTO GRID ============ -->
-    <section class="hero" aria-label="Introduction">
-      <div class="wrap bento">
+      <div class="side-body" id="side-body">
+        <p class="status"><span class="dot" aria-hidden="true"></span>Open to full-time roles</p>
 
-        <div class="tile tile-intro" style="--i:0">
-          <h1>Hi, I’m Sushmita. I build software from the browser to the database.</h1>
-          <p>
-            Software engineer working with Java, Spring Boot, React and AWS.
-            I’m finishing my MS in Information Systems at Northeastern.
+        <nav aria-label="Primary">
+          <ul class="nav">
+            <li><a href="#intro" data-spy="intro">Intro</a></li>
+            <li><a href="#about" data-spy="about">About</a></li>
+            <li><a href="#experience" data-spy="experience">Experience</a></li>
+            <li><a href="#savor-team" data-spy="savor-team">Life at Savor</a></li>
+            <li><a href="#projects" data-spy="projects">Projects</a></li>
+            <li><a href="#skills" data-spy="skills">Skills</a></li>
+            <li><a href="#education" data-spy="education">Education</a></li>
+            <li><a href="#contact" data-spy="contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="side-foot">
+          <ul class="social">
+            <li>
+              <a href="https://github.com/Sushmita-Hubli" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 6.84c.85 0 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.8c0 .27.18.6.69.49A10.27 10.27 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/sushmita-hubli/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hubli.s@northeastern.edu" aria-label="Email">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 6.5h18v11H3z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m3.5 7 8.5 6.5L20.5 7"/></svg>
+              </a>
+            </li>
+          </ul>
+
+          <button class="theme-btn" id="theme-btn" type="button" aria-pressed="false">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span class="theme-label">Dark mode</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ MAIN ============ -->
+    <main class="content" id="main">
+      <div class="page">
+
+        <!-- INTRO -->
+        <section class="intro" id="intro" aria-labelledby="h-intro">
+          <h1 id="h-intro">Software engineer building dependable features, from the interface to the database.</h1>
+          <p class="lead">
+            I work with Java, Spring Boot, React and AWS. Most recently I was a co-op at Savor, a travel memory app,
+            where I shipped features end to end. I’m finishing my MS in Information Systems at Northeastern in December 2026.
           </p>
           <div class="actions">
-            <a class="btn btn-sun" href="#projects">See my projects</a>
-            <a class="btn btn-outline" href="#contact">Say hello</a>
+            <a class="btn" href="#projects">See my projects</a>
+            <a class="btn btn-quiet" href="#contact">Get in touch</a>
           </div>
-        </div>
 
-        <div class="tile tile-mark" style="--i:1" aria-hidden="true">
-          <span class="mark-letters">SH</span>
-          <span class="mark-chip">Software Engineer</span>
-          <span class="mark-chip">Boston, MA</span>
-        </div>
-
-        <div class="tile tile-open" style="--i:2">
-          <p class="open-flag"><span class="dot" aria-hidden="true"></span>Open to work</p>
-          <p class="open-text">Looking for a full-time software engineer role.</p>
-          <p class="open-sub">Graduating December 2026.</p>
-        </div>
-
-        <div class="tile tile-stats" style="--i:3">
-          <h2 class="tile-title">Results at Savor</h2>
-          <ul class="stats">
-            <li><strong>35%</strong><span>more user engagement</span></li>
-            <li><strong>30%</strong><span>lower API latency</span></li>
-            <li><strong>25%</strong><span>shorter release cycle</span></li>
+          <ul class="metrics" aria-label="Results at Savor">
+            <li><strong><span data-count="35">35</span>%</strong><span>more user engagement</span></li>
+            <li><strong><span data-count="40">40</span>%</strong><span>less manual search time</span></li>
+            <li><strong><span data-count="30">30</span>%</strong><span>lower API latency</span></li>
+            <li><strong><span data-count="25">25</span>%</strong><span>shorter release cycle</span></li>
           </ul>
-        </div>
+        </section>
 
-        <div class="tile tile-edu" style="--i:4">
-          <h2 class="tile-title">Education</h2>
-          <p class="edu-main">MS Information Systems</p>
-          <p class="edu-sub">Northeastern University, GPA 3.73 / 4.0</p>
-          <p class="edu-sub">BE Electronics and Telecommunication, Pune Institute of Computer Technology</p>
-        </div>
+        <!-- ABOUT -->
+        <section class="section" id="about" aria-labelledby="h-about">
+          <h2 id="h-about">About</h2>
+          <div class="prose">
+            <p>
+              I like owning a feature from the interface to the database. At Savor I built React and TypeScript features on
+              Spring Boot microservices and added LLM-powered search and auto-tagging. Before that I built the backend and
+              shopping interface for an e-commerce platform at Maleta in Java, Spring Boot and React, and automated its tests
+              and deployments.
+            </p>
+            <p>
+              At Northeastern I worked as a teaching assistant for courses on Spring MVC, Hibernate and Spring Boot. I’ve
+              published two papers, one in IEEE Xplore. I’m looking for a full-time software engineer role in backend,
+              full-stack or cloud work.
+            </p>
+          </div>
+        </section>
 
-        <div class="tile tile-flow" style="--i:5">
-          <h2 class="tile-title">How I build</h2>
-          <ol class="flow">
-            <li><strong>Interface</strong><span>React.js, TypeScript, Redux</span></li>
-            <li><strong>Services</strong><span>Java, Spring Boot, REST, Kafka</span></li>
-            <li><strong>Data</strong><span>MySQL, PostgreSQL, MongoDB</span></li>
-            <li><strong>Delivery</strong><span>Docker, Jenkins, GitHub Actions</span></li>
-            <li><strong>Cloud</strong><span>AWS, Terraform, Ansible</span></li>
-          </ol>
-        </div>
+        <!-- EXPERIENCE (tabs) -->
+        <section class="section" id="experience" aria-labelledby="h-experience">
+          <h2 id="h-experience">Experience</h2>
 
-      </div>
-    </section>
-
-    <!-- ============ STACK MARQUEE ============ -->
-    <section class="marquee" aria-label="Technologies I use">
-      <div class="marquee-track">
-        <ul>
-          <li>Java</li><li>Spring Boot</li><li>React.js</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>Hibernate</li><li>Kafka</li><li>PostgreSQL</li><li>MongoDB</li><li>Docker</li><li>Jenkins</li><li>GitHub Actions</li><li>AWS</li><li>Terraform</li><li>Selenium</li>
-        </ul>
-        <ul aria-hidden="true">
-          <li>Java</li><li>Spring Boot</li><li>React.js</li><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>Hibernate</li><li>Kafka</li><li>PostgreSQL</li><li>MongoDB</li><li>Docker</li><li>Jenkins</li><li>GitHub Actions</li><li>AWS</li><li>Terraform</li><li>Selenium</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about" aria-labelledby="h-about">
-      <div class="wrap">
-        <h2 class="sec-title" id="h-about">I like owning a feature from the interface to the database.</h2>
-        <div class="about-grid">
-          <p>
-            At Savor, a consumer memory and travel app, I built React and TypeScript features on Spring Boot
-            microservices and added LLM-powered search and auto-tagging. Before that I built the backend and
-            shopping interface for an e-commerce platform in Java, Spring Boot and React, and automated its
-            tests and deployments.
-          </p>
-          <p>
-            I’m finishing my MS in Information Systems at Northeastern, where I also worked as a teaching
-            assistant for courses on Spring MVC, Hibernate and Spring Boot. I’ve published two papers, one in
-            IEEE Xplore. I’m looking for a full-time software engineer role in backend, full-stack or cloud work.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section section-tint" id="experience" aria-labelledby="h-experience">
-      <div class="wrap">
-        <h2 class="sec-title" id="h-experience">Where I’ve worked</h2>
-
-        <div class="xp-list">
-          <article class="xp xp-1">
-            <div class="xp-head">
-              <div>
-                <h3>Software Engineer Co-op</h3>
-                <p class="xp-org">Savor, Boston, MA</p>
-              </div>
-              <p class="xp-date">Jan 2026 to May 2026</p>
+          <div class="tabs" data-tabs>
+            <div class="tablist" role="tablist" aria-label="Employers">
+              <button class="tab" role="tab" id="tab-savor" aria-controls="panel-savor" aria-selected="true" type="button">Savor</button>
+              <button class="tab" role="tab" id="tab-neu" aria-controls="panel-neu" aria-selected="false" tabindex="-1" type="button">Northeastern</button>
+              <button class="tab" role="tab" id="tab-maleta" aria-controls="panel-maleta" aria-selected="false" tabindex="-1" type="button">Maleta</button>
             </div>
-            <ul class="xp-points">
-              <li>Built full-stack features for a consumer memory and travel app with React.js, TypeScript and Spring Boot microservices, raising user engagement by <strong>35%</strong>.</li>
-              <li>Designed generative AI pipelines on LLM APIs for search, auto-tagging and personalized retrieval, cutting manual search time by <strong>40%</strong>.</li>
-              <li>Built and maintained RESTful Spring Boot microservices and responsive React components, improving API latency by <strong>30%</strong> for thousands of active users.</li>
-              <li>Set up CI/CD with GitHub Actions and Docker and delivered features end to end in a startup, shortening the release cycle by <strong>25%</strong>.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies used">
-              <li>React.js</li><li>TypeScript</li><li>Spring Boot</li><li>LLM APIs</li><li>GitHub Actions</li><li>Docker</li>
-            </ul>
-          </article>
 
-          <article class="xp xp-2">
-            <div class="xp-head">
-              <div>
-                <h3>Graduate Teaching Assistant</h3>
-                <p class="xp-org">Northeastern University, Boston, MA</p>
+            <!-- Savor -->
+            <div class="tabpanel" role="tabpanel" id="panel-savor" aria-labelledby="tab-savor">
+              <div class="job-head">
+                <div>
+                  <h3>Software Engineer Co-op</h3>
+                  <p class="job-org">Savor, Boston, MA</p>
+                </div>
+                <p class="job-date">Jan 2026 to May 2026</p>
               </div>
-              <p class="xp-date">Sep 2025 to Dec 2025</p>
-            </div>
-            <ul class="xp-points">
-              <li>Supported Enterprise Software Design and Web Development Tools &amp; Methods, guiding students through Spring MVC, Hibernate, JSP/Servlets, AJAX, Spring Boot and RESTful services in exercises and debugging sessions.</li>
-              <li>Worked with the instructor to improve teaching materials, connecting theory to real server-side and database-driven development.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies used">
-              <li>Spring MVC</li><li>Hibernate</li><li>Spring Boot</li><li>REST</li>
-            </ul>
-          </article>
-
-          <article class="xp xp-3">
-            <div class="xp-head">
-              <div>
-                <h3>Software Engineer</h3>
-                <p class="xp-org">Maleta, India</p>
+              <p class="job-about">
+                Savor is an iPhone app that finds your trips in your camera roll and gathers the places you went and
+                everything you had.
+              </p>
+              <ul class="points">
+                <li>Built full-stack features for a consumer memory and travel app with React.js, TypeScript and Spring Boot microservices, raising user engagement by <strong>35%</strong>.</li>
+                <li>Designed generative AI pipelines on LLM APIs for search, auto-tagging and personalized retrieval, cutting manual search time by <strong>40%</strong>.</li>
+                <li>Built and maintained RESTful Spring Boot microservices and responsive React components, improving API latency by <strong>30%</strong> for thousands of active users.</li>
+                <li>Set up CI/CD with GitHub Actions and Docker and delivered features end to end in a startup, shortening the release cycle by <strong>25%</strong>.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies used">
+                <li>React.js</li><li>TypeScript</li><li>Spring Boot</li><li>LLM APIs</li><li>GitHub Actions</li><li>Docker</li>
+              </ul>
+              <div class="link-row">
+                <a class="btn btn-sm" href="https://savormemory.com/" target="_blank" rel="noopener noreferrer">Visit savormemory.com</a>
+                <a class="btn btn-sm btn-quiet" href="https://apps.apple.com/app/id6762642923" target="_blank" rel="noopener noreferrer">View on the App Store</a>
+                <a class="btn btn-sm btn-quiet" href="#savor-team">See team photos</a>
               </div>
-              <p class="xp-date">Jun 2023 to Aug 2024</p>
             </div>
-            <ul class="xp-points">
-              <li>Developed backend microservices in Java and Spring Boot for core e-commerce workflows: product catalog, order processing and customer-facing operations.</li>
-              <li>Designed and optimized REST APIs on MySQL and PostgreSQL, improving data reliability and query times through indexing and schema work.</li>
-              <li>Built the shopping interface in React.js, TypeScript and Redux Toolkit, covering product listing, cart and checkout.</li>
-              <li>Automated end-to-end tests with Selenium to catch regressions early across critical user workflows.</li>
-              <li>Containerized services and set up Jenkins and Docker pipelines, and provisioned AWS (EC2, S3, IAM) with Terraform and Ansible for consistent environments.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies used">
-              <li>Java</li><li>Spring Boot</li><li>React.js</li><li>Redux Toolkit</li><li>MySQL</li><li>PostgreSQL</li><li>Selenium</li><li>Jenkins</li><li>Terraform</li><li>Ansible</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects" aria-labelledby="h-projects">
-      <div class="wrap">
-        <h2 class="sec-title" id="h-projects">Things I’ve built</h2>
+            <!-- Northeastern -->
+            <div class="tabpanel" role="tabpanel" id="panel-neu" aria-labelledby="tab-neu" hidden>
+              <div class="job-head">
+                <div>
+                  <h3>Graduate Teaching Assistant</h3>
+                  <p class="job-org">Northeastern University, Boston, MA</p>
+                </div>
+                <p class="job-date">Sep 2025 to Dec 2025</p>
+              </div>
+              <ul class="points">
+                <li>Supported Enterprise Software Design and Web Development Tools &amp; Methods, guiding students through Spring MVC, Hibernate, JSP/Servlets, AJAX, Spring Boot and RESTful services in exercises and debugging sessions.</li>
+                <li>Worked with the instructor to improve teaching materials, connecting theory to real server-side and database-driven development.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies used">
+                <li>Spring MVC</li><li>Hibernate</li><li>Spring Boot</li><li>REST</li>
+              </ul>
+            </div>
 
-        <div class="proj-list">
+            <!-- Maleta -->
+            <div class="tabpanel" role="tabpanel" id="panel-maleta" aria-labelledby="tab-maleta" hidden>
+              <div class="maleta-grid">
+                <div>
+                  <div class="job-head">
+                    <div>
+                      <h3>Software Engineer</h3>
+                      <p class="job-org">Maleta, India</p>
+                    </div>
+                    <p class="job-date">Jun 2023 to Aug 2024</p>
+                  </div>
+                  <p class="job-about">
+                    Maleta is an Indian travel brand selling trolley bags, backpacks and duffle bags online. I worked on
+                    the e-commerce platform behind it.
+                  </p>
+                  <ul class="points">
+                    <li>Developed backend microservices in Java and Spring Boot for core e-commerce workflows: product catalog, order processing and customer-facing operations.</li>
+                    <li>Designed and optimized REST APIs on MySQL and PostgreSQL, improving data reliability and query times through indexing and schema work.</li>
+                    <li>Built the shopping interface in React.js, TypeScript and Redux Toolkit, covering product listing, cart and checkout.</li>
+                    <li>Automated end-to-end tests with Selenium to catch regressions early across critical user workflows.</li>
+                    <li>Containerized services and set up Jenkins and Docker pipelines, and provisioned AWS (EC2, S3, IAM) with Terraform and Ansible for consistent environments.</li>
+                  </ul>
+                  <ul class="tags" aria-label="Technologies used">
+                    <li>Java</li><li>Spring Boot</li><li>React.js</li><li>Redux Toolkit</li><li>MySQL</li><li>PostgreSQL</li><li>Selenium</li><li>Jenkins</li><li>Terraform</li><li>Ansible</li>
+                  </ul>
+                </div>
+
+                <!--
+                  Brand card. The image loads from Maleta's own site. For reliability, download a brand photo,
+                  save it in the images folder as maleta-brand.jpg and change the img src below to images/maleta-brand.jpg
+                -->
+                <aside class="brand-card" aria-label="About Maleta">
+                  <div class="brand-media">
+                    <img
+                      src="https://themaleta.com/cdn/shop/files/Maleta_Bags_15th_Aug_202407459_YELLOW.jpg?v=1764156245&amp;width=533"
+                      alt="A yellow Maleta Nova trolley bag"
+                      width="533" height="533" loading="lazy" data-fallback>
+                    <p class="brand-fallback" hidden>Maleta</p>
+                  </div>
+                  <div class="brand-text">
+                    <h4>Maleta</h4>
+                    <p>Premium trolley bags, backpacks and duffle bags.</p>
+                    <a class="btn btn-sm" href="https://themaleta.com/" target="_blank" rel="noopener noreferrer">Visit themaleta.com</a>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LIFE AT SAVOR (gallery + lightbox) -->
+        <section class="section" id="savor-team" aria-labelledby="h-savor-team">
+          <h2 id="h-savor-team">Life at Savor</h2>
+          <p class="section-note">Working sessions with the Savor team in Boston. Select a photo to view it larger.</p>
+
+          <ul class="gallery">
+            <li class="g-a">
+              <button type="button" data-lightbox data-full="images/savor-team-selfie.jpg" data-caption="With teammates at Savor" aria-label="Open photo: with teammates at Savor">
+                <img src="images/savor-team-selfie.jpg" alt="Three teammates smiling for a selfie in a cafe with laptops on the table" loading="lazy">
+                <span class="g-cap">With teammates at Savor</span>
+              </button>
+            </li>
+            <li class="g-b">
+              <button type="button" data-lightbox data-full="images/savor-app-cafe.jpg" data-caption="The Savor app on a tablet" aria-label="Open photo: the Savor app on a tablet">
+                <img src="images/savor-app-cafe.jpg" alt="A tablet showing the Savor app welcome screen next to a flower pot and an iced matcha" loading="lazy">
+                <span class="g-cap">The Savor app on a tablet</span>
+              </button>
+            </li>
+            <li class="g-c">
+              <button type="button" data-lightbox data-full="images/savor-coding.jpg" data-caption="Code and the Savor app, side by side" aria-label="Open photo: code and the Savor app, side by side">
+                <img src="images/savor-coding.jpg" alt="A laptop with code open in an editor next to a tablet showing the Savor app" loading="lazy">
+                <span class="g-cap">Code and the app, side by side</span>
+              </button>
+            </li>
+            <li class="g-d">
+              <button type="button" data-lightbox data-full="images/savor-team-working.jpg" data-caption="Working through a problem with the team" aria-label="Open photo: working through a problem with the team">
+                <img src="images/savor-team-working.jpg" alt="Teammates discussing work around laptops in a restaurant workspace" loading="lazy">
+                <span class="g-cap">Working through a problem together</span>
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects" aria-labelledby="h-projects">
+          <h2 id="h-projects">Projects</h2>
 
           <!-- FitFlow -->
-          <article class="proj">
-            <div class="proj-info">
-              <p class="proj-date">Aug 2026</p>
-              <h3>FitFlow</h3>
-              <p class="proj-sum">A fitness app built as microservices. Users, activities and AI recommendations each run as their own service behind a secured gateway.</p>
-              <ul class="proj-points">
+          <article class="project" data-tabs>
+            <div class="project-head">
+              <div>
+                <p class="project-date">Aug 2026</p>
+                <h3>FitFlow</h3>
+              </div>
+              <a class="btn btn-sm" href="https://github.com/Sushmita-Hubli/FitFlow" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+            </div>
+            <p class="project-sum">A fitness app built as microservices. Users, activities and AI recommendations each run as their own service behind a secured gateway.</p>
+
+            <div class="tablist small" role="tablist" aria-label="FitFlow details">
+              <button class="tab" role="tab" id="fit-tab-1" aria-controls="fit-panel-1" aria-selected="true" type="button">Overview</button>
+              <button class="tab" role="tab" id="fit-tab-2" aria-controls="fit-panel-2" aria-selected="false" tabindex="-1" type="button">Architecture</button>
+            </div>
+
+            <div class="tabpanel" role="tabpanel" id="fit-panel-1" aria-labelledby="fit-tab-1">
+              <ul class="points">
                 <li>Secured all inter-service communication with Keycloak-based OAuth2 and JWT authentication.</li>
                 <li>Combined synchronous REST with asynchronous Kafka messaging across the User, Activity and AI services.</li>
                 <li>Integrated the Google Gemini API for AI-driven fitness recommendations, backed by PostgreSQL and MongoDB.</li>
@@ -217,54 +304,66 @@
               <ul class="tags" aria-label="Technologies used">
                 <li>Spring Boot</li><li>Spring Cloud Gateway</li><li>Eureka</li><li>Config Server</li><li>Keycloak</li><li>Kafka</li><li>React.js</li><li>PostgreSQL</li><li>MongoDB</li><li>Gemini API</li>
               </ul>
-              <a class="btn btn-dark" href="https://github.com/Sushmita-Hubli/FitFlow">View code on GitHub</a>
             </div>
 
-            <figure class="proj-visual">
-              <svg viewBox="0 0 570 292" role="img" aria-labelledby="fit-title fit-desc">
-                <title id="fit-title">FitFlow architecture</title>
-                <desc id="fit-desc">A React client calls a Spring Cloud Gateway secured by Keycloak. The gateway routes to User, Activity and AI services. Activity and AI services communicate over Kafka. The AI service calls the Google Gemini API. Data is stored in PostgreSQL and MongoDB.</desc>
-                <defs>
-                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path class="arrow-head" d="M0 0 L10 5 L0 10 z"/>
-                  </marker>
-                </defs>
-                <line class="wire" x1="150" y1="40" x2="220" y2="40" marker-end="url(#ah)"/>
-                <line class="wire dashed" x1="350" y1="40" x2="420" y2="40" marker-end="url(#ah)"/>
-                <path class="wire" d="M285 64 V88 H95 V124" marker-end="url(#ah)"/>
-                <line class="wire" x1="285" y1="64" x2="285" y2="124" marker-end="url(#ah)"/>
-                <path class="wire" d="M285 88 H475 V124" marker-end="url(#ah)"/>
-                <line class="wire kafka" x1="350" y1="152" x2="410" y2="152" marker-end="url(#ah)" marker-start="url(#ah)"/>
-                <line class="wire" x1="95" y1="180" x2="95" y2="234" marker-end="url(#ah)"/>
-                <line class="wire" x1="285" y1="180" x2="285" y2="234" marker-end="url(#ah)"/>
-                <line class="wire" x1="475" y1="180" x2="475" y2="234" marker-end="url(#ah)"/>
+            <div class="tabpanel" role="tabpanel" id="fit-panel-2" aria-labelledby="fit-tab-2" hidden>
+              <figure class="diagram">
+                <svg viewBox="0 0 570 292" role="img" aria-labelledby="fit-title fit-desc">
+                  <title id="fit-title">FitFlow architecture</title>
+                  <desc id="fit-desc">A React client calls a Spring Cloud Gateway secured by Keycloak. The gateway routes to User, Activity and AI services. Activity and AI services communicate over Kafka. The AI service calls the Google Gemini API. Data is stored in PostgreSQL and MongoDB.</desc>
+                  <defs>
+                    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                      <path class="arrow-head" d="M0 0 L10 5 L0 10 z"/>
+                    </marker>
+                  </defs>
+                  <line class="wire" x1="150" y1="40" x2="220" y2="40" marker-end="url(#ah)"/>
+                  <line class="wire dashed" x1="350" y1="40" x2="420" y2="40" marker-end="url(#ah)"/>
+                  <path class="wire" d="M285 64 V88 H95 V124" marker-end="url(#ah)"/>
+                  <line class="wire" x1="285" y1="64" x2="285" y2="124" marker-end="url(#ah)"/>
+                  <path class="wire" d="M285 88 H475 V124" marker-end="url(#ah)"/>
+                  <line class="wire kafka" x1="350" y1="152" x2="410" y2="152" marker-end="url(#ah)" marker-start="url(#ah)"/>
+                  <line class="wire" x1="95" y1="180" x2="95" y2="234" marker-end="url(#ah)"/>
+                  <line class="wire" x1="285" y1="180" x2="285" y2="234" marker-end="url(#ah)"/>
+                  <line class="wire" x1="475" y1="180" x2="475" y2="234" marker-end="url(#ah)"/>
 
-                <rect class="band" x="10" y="100" width="550" height="112" rx="14"/>
-                <text class="band-label" x="108" y="204">Eureka and Config Server</text>
+                  <rect class="band" x="10" y="100" width="550" height="112" rx="14"/>
+                  <text class="band-label" x="108" y="204">Eureka and Config Server</text>
 
-                <g class="node"><rect x="20" y="16" width="130" height="48" rx="10"/><text class="t1" x="85" y="37" text-anchor="middle">React client</text><text class="t2" x="85" y="53" text-anchor="middle">React.js</text></g>
-                <g class="node"><rect x="220" y="16" width="130" height="48" rx="10"/><text class="t1" x="285" y="37" text-anchor="middle">API gateway</text><text class="t2" x="285" y="53" text-anchor="middle">Spring Cloud Gateway</text></g>
-                <g class="node alt"><rect x="420" y="16" width="130" height="48" rx="10"/><text class="t1" x="485" y="37" text-anchor="middle">Keycloak</text><text class="t2" x="485" y="53" text-anchor="middle">OAuth2 and JWT</text></g>
+                  <g class="node"><rect x="20" y="16" width="130" height="48" rx="10"/><text class="t1" x="85" y="37" text-anchor="middle">React client</text><text class="t2" x="85" y="53" text-anchor="middle">React.js</text></g>
+                  <g class="node"><rect x="220" y="16" width="130" height="48" rx="10"/><text class="t1" x="285" y="37" text-anchor="middle">API gateway</text><text class="t2" x="285" y="53" text-anchor="middle">Spring Cloud Gateway</text></g>
+                  <g class="node alt"><rect x="420" y="16" width="130" height="48" rx="10"/><text class="t1" x="485" y="37" text-anchor="middle">Keycloak</text><text class="t2" x="485" y="53" text-anchor="middle">OAuth2 and JWT</text></g>
 
-                <g class="node"><rect x="30" y="124" width="130" height="56" rx="10"/><text class="t1" x="95" y="157" text-anchor="middle">User service</text></g>
-                <g class="node"><rect x="220" y="124" width="130" height="56" rx="10"/><text class="t1" x="285" y="157" text-anchor="middle">Activity service</text></g>
-                <g class="node hl"><rect x="410" y="124" width="130" height="56" rx="10"/><text class="t1" x="475" y="157" text-anchor="middle">AI service</text></g>
-                <text class="wire-label" x="380" y="144" text-anchor="middle">Kafka</text>
+                  <g class="node"><rect x="30" y="124" width="130" height="56" rx="10"/><text class="t1" x="95" y="157" text-anchor="middle">User service</text></g>
+                  <g class="node"><rect x="220" y="124" width="130" height="56" rx="10"/><text class="t1" x="285" y="157" text-anchor="middle">Activity service</text></g>
+                  <g class="node hl"><rect x="410" y="124" width="130" height="56" rx="10"/><text class="t1" x="475" y="157" text-anchor="middle">AI service</text></g>
+                  <text class="wire-label" x="380" y="144" text-anchor="middle">Kafka</text>
 
-                <g class="node"><rect x="30" y="236" width="320" height="42" rx="10"/><text class="t1" x="190" y="262" text-anchor="middle">PostgreSQL and MongoDB</text></g>
-                <g class="node hl"><rect x="410" y="236" width="130" height="42" rx="10"/><text class="t1" x="475" y="262" text-anchor="middle">Google Gemini API</text></g>
-              </svg>
-              <figcaption>Solid lines are REST calls. The double arrow is asynchronous messaging over Kafka.</figcaption>
-            </figure>
+                  <g class="node"><rect x="30" y="236" width="320" height="42" rx="10"/><text class="t1" x="190" y="262" text-anchor="middle">PostgreSQL and MongoDB</text></g>
+                  <g class="node hl"><rect x="410" y="236" width="130" height="42" rx="10"/><text class="t1" x="475" y="262" text-anchor="middle">Google Gemini API</text></g>
+                </svg>
+                <figcaption>Solid lines are REST calls. The double arrow is asynchronous messaging over Kafka.</figcaption>
+              </figure>
+            </div>
           </article>
 
           <!-- CodeChronicles -->
-          <article class="proj proj-flip">
-            <div class="proj-info">
-              <p class="proj-date">Apr 2025</p>
-              <h3>CodeChronicles</h3>
-              <p class="proj-sum">A content management platform for software developers, with a CI/CD pipeline designed so build workers only exist while a build runs.</p>
-              <ul class="proj-points">
+          <article class="project" data-tabs>
+            <div class="project-head">
+              <div>
+                <p class="project-date">Apr 2025</p>
+                <h3>CodeChronicles</h3>
+              </div>
+              <a class="btn btn-sm" href="https://github.com/Sushmita-Hubli/DAO_impl_CodeChronicles" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+            </div>
+            <p class="project-sum">A content management platform for software developers, with a CI/CD pipeline designed so build workers only exist while a build runs.</p>
+
+            <div class="tablist small" role="tablist" aria-label="CodeChronicles details">
+              <button class="tab" role="tab" id="cc-tab-1" aria-controls="cc-panel-1" aria-selected="true" type="button">Overview</button>
+              <button class="tab" role="tab" id="cc-tab-2" aria-controls="cc-panel-2" aria-selected="false" tabindex="-1" type="button">CI/CD pipeline</button>
+            </div>
+
+            <div class="tabpanel" role="tabpanel" id="cc-panel-1" aria-labelledby="cc-tab-1">
+              <ul class="points">
                 <li>Architected the platform with Spring Boot, Hibernate and JWT authentication, and a React.js and TypeScript front end using Redux for state.</li>
                 <li>Deployed on AWS (EC2, RDS).</li>
                 <li>Reduced compute costs by running Jenkins build workers as ephemeral Docker containers while automating build, test and deployment.</li>
@@ -272,116 +371,314 @@
               <ul class="tags" aria-label="Technologies used">
                 <li>Spring Boot</li><li>Hibernate</li><li>JWT</li><li>React.js</li><li>TypeScript</li><li>Redux</li><li>Jenkins</li><li>Docker</li><li>AWS EC2</li><li>AWS RDS</li>
               </ul>
-              <a class="btn btn-dark" href="https://github.com/Sushmita-Hubli/DAO_impl_CodeChronicles">View code on GitHub</a>
             </div>
 
-            <figure class="proj-visual">
-              <ol class="pipeline" aria-label="CI/CD flow">
-                <li><strong>Code change</strong><span>Starts the pipeline</span></li>
-                <li><strong>Jenkins</strong><span>Schedules the build job</span></li>
-                <li class="hl"><strong>Ephemeral Docker worker</strong><span>Builds and tests, then is discarded</span></li>
-                <li><strong>AWS</strong><span>Deploys to EC2 with RDS for data</span></li>
-              </ol>
-              <figcaption>Workers are lightweight Docker images, so there is no idle build infrastructure to pay for.</figcaption>
-            </figure>
+            <div class="tabpanel" role="tabpanel" id="cc-panel-2" aria-labelledby="cc-tab-2" hidden>
+              <figure class="diagram">
+                <ol class="pipeline" aria-label="CI/CD flow">
+                  <li><strong>Code change</strong><span>Starts the pipeline</span></li>
+                  <li><strong>Jenkins</strong><span>Schedules the build job</span></li>
+                  <li class="hl"><strong>Ephemeral Docker worker</strong><span>Builds and tests, then is discarded</span></li>
+                  <li><strong>AWS</strong><span>Deploys to EC2 with RDS for data</span></li>
+                </ol>
+                <figcaption>Workers are lightweight Docker images, so there is no idle build infrastructure to pay for.</figcaption>
+              </figure>
+            </div>
           </article>
 
-          <a class="more" href="https://github.com/Sushmita-Hubli">
-            <span>More projects and code on my GitHub profile</span>
-          </a>
-        </div>
-      </div>
-    </section>
+          <a class="more" href="https://github.com/Sushmita-Hubli" target="_blank" rel="noopener noreferrer">See more code on my GitHub profile</a>
+        </section>
 
-    <!-- ============ SKILLS ============ -->
-    <section class="section section-tint" id="skills" aria-labelledby="h-skills">
-      <div class="wrap">
-        <h2 class="sec-title" id="h-skills">What I work with</h2>
+        <!-- SKILLS (filter) -->
+        <section class="section" id="skills" aria-labelledby="h-skills">
+          <h2 id="h-skills">Skills</h2>
+          <p class="section-note">Pick a category to highlight it.</p>
 
-        <div class="skill-grid">
-          <article class="skill sk-1">
-            <h3>Languages</h3>
-            <ul class="chips"><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>SQL</li><li>C</li><li>C++</li><li>HTML</li><li>CSS</li><li>SCSS</li></ul>
-          </article>
-          <article class="skill sk-2">
-            <h3>Backend</h3>
-            <ul class="chips"><li>Spring Boot</li><li>Spring MVC</li><li>Hibernate</li><li>Servlet</li><li>JSP</li><li>REST APIs</li><li>Microservices</li><li>Kafka</li><li>Swagger</li></ul>
-          </article>
-          <article class="skill sk-3">
-            <h3>Frontend</h3>
-            <ul class="chips"><li>React.js</li><li>Redux Toolkit</li><li>jQuery</li><li>Bootstrap</li></ul>
-          </article>
-          <article class="skill sk-4">
-            <h3>Databases</h3>
-            <ul class="chips"><li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Prisma</li></ul>
-          </article>
-          <article class="skill sk-5">
-            <h3>Cloud and DevOps</h3>
-            <ul class="chips"><li>AWS (EC2, S3, IAM, CloudWatch, API Gateway, Lambda, DynamoDB)</li><li>Docker</li><li>Jenkins</li><li>GitHub Actions</li><li>Terraform</li><li>Ansible</li></ul>
-          </article>
-          <article class="skill sk-6">
-            <h3>Testing and tools</h3>
-            <ul class="chips"><li>Selenium</li><li>Postman</li><li>Git</li><li>GitHub</li><li>Jira</li><li>MobaXterm</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EDUCATION + PUBLICATIONS ============ -->
-    <section class="section" id="education" aria-labelledby="h-education">
-      <div class="wrap">
-        <h2 class="sec-title" id="h-education">Education and publications</h2>
-
-        <div class="edu-grid">
-          <article class="edu">
-            <p class="edu-when">Graduating Dec 2026</p>
-            <h3>Master of Science, Information Systems</h3>
-            <p class="edu-school">Northeastern University, Boston</p>
-            <p class="edu-gpa">GPA 3.73 / 4.0</p>
-            <p class="edu-note">Coursework: Application Engineering and Development, Web Design and User Experience Engineering, Object-Oriented Design, Web Development Tools and Methods, Software Engineering, Software Quality Control and Management.</p>
-          </article>
-          <article class="edu">
-            <p class="edu-when">May 2024</p>
-            <h3>Bachelor of Engineering, Electronics and Telecommunication</h3>
-            <p class="edu-school">Pune Institute of Computer Technology, Pune, India</p>
-            <p class="edu-gpa">GPA 8.81 / 10</p>
-          </article>
-        </div>
-
-        <ul class="pubs">
-          <li>
-            <p class="pub-title">Coder’s Battle Room Using Cloud Computing</p>
-            <p class="pub-meta">2024 OPJU International Technology Conference (OTCON) on Smart Computing for Innovation and Advancement in Industry 4.0. Published in IEEE Xplore, September 2024.</p>
-          </li>
-          <li>
-            <p class="pub-title">Efficient Backend Development with Spring Boot: A Comprehensive Overview</p>
-            <p class="pub-meta">International Journal for Research in Applied Science &amp; Engineering Technology, November 2023.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="contact-wrap" id="contact" aria-labelledby="h-contact">
-      <div class="wrap">
-        <div class="contact">
-          <h2 id="h-contact">Let’s work together.</h2>
-          <p>I’m graduating in December 2026 and looking for a full-time software engineer role. Email me and I’ll send my resume.</p>
-          <div class="actions">
-            <a class="btn btn-sun" href="mailto:hubli.s@northeastern.edu">hubli.s@northeastern.edu</a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/sushmita-hubli/">LinkedIn</a>
-            <a class="btn btn-outline" href="https://github.com/Sushmita-Hubli">GitHub</a>
+          <div class="filters" role="group" aria-label="Filter skills by category">
+            <button class="chip-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip-btn" type="button" data-filter="lang" aria-pressed="false">Languages</button>
+            <button class="chip-btn" type="button" data-filter="back" aria-pressed="false">Backend</button>
+            <button class="chip-btn" type="button" data-filter="front" aria-pressed="false">Frontend</button>
+            <button class="chip-btn" type="button" data-filter="data" aria-pressed="false">Databases</button>
+            <button class="chip-btn" type="button" data-filter="cloud" aria-pressed="false">Cloud and DevOps</button>
+            <button class="chip-btn" type="button" data-filter="tools" aria-pressed="false">Testing and tools</button>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="wrap footer-in">
-      <p>© 2026 Sushmita Hubli. Boston, MA.</p>
-      <a href="#top">Back to top</a>
-    </div>
-  </footer>
+          <ul class="skill-cloud" id="skill-cloud">
+            <li data-cat="lang">Java</li><li data-cat="lang">JavaScript</li><li data-cat="lang">TypeScript</li><li data-cat="lang">Python</li><li data-cat="lang">SQL</li><li data-cat="lang">C</li><li data-cat="lang">C++</li><li data-cat="lang">HTML</li><li data-cat="lang">CSS</li><li data-cat="lang">SCSS</li>
+            <li data-cat="back">Spring Boot</li><li data-cat="back">Spring MVC</li><li data-cat="back">Hibernate</li><li data-cat="back">Servlet</li><li data-cat="back">JSP</li><li data-cat="back">REST APIs</li><li data-cat="back">Microservices</li><li data-cat="back">Kafka</li><li data-cat="back">Swagger</li>
+            <li data-cat="front">React.js</li><li data-cat="front">Redux Toolkit</li><li data-cat="front">jQuery</li><li data-cat="front">Bootstrap</li>
+            <li data-cat="data">MySQL</li><li data-cat="data">PostgreSQL</li><li data-cat="data">MongoDB</li><li data-cat="data">Prisma</li>
+            <li data-cat="cloud">AWS EC2</li><li data-cat="cloud">AWS S3</li><li data-cat="cloud">AWS IAM</li><li data-cat="cloud">CloudWatch</li><li data-cat="cloud">API Gateway</li><li data-cat="cloud">AWS Lambda</li><li data-cat="cloud">DynamoDB</li><li data-cat="cloud">Docker</li><li data-cat="cloud">Jenkins</li><li data-cat="cloud">GitHub Actions</li><li data-cat="cloud">Terraform</li><li data-cat="cloud">Ansible</li>
+            <li data-cat="tools">Selenium</li><li data-cat="tools">Postman</li><li data-cat="tools">Git</li><li data-cat="tools">GitHub</li><li data-cat="tools">Jira</li><li data-cat="tools">MobaXterm</li>
+          </ul>
+          <p class="filter-status" id="filter-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section" id="education" aria-labelledby="h-education">
+          <h2 id="h-education">Education and publications</h2>
+
+          <div class="edu-grid">
+            <article class="edu">
+              <p class="edu-when">Graduating Dec 2026</p>
+              <h3>Master of Science, Information Systems</h3>
+              <p class="edu-school">Northeastern University, Boston</p>
+              <p class="edu-gpa">GPA 3.73 / 4.0</p>
+              <p class="edu-note">Coursework: Application Engineering and Development, Web Design and User Experience Engineering, Object-Oriented Design, Web Development Tools and Methods, Software Engineering, Software Quality Control and Management.</p>
+            </article>
+            <article class="edu">
+              <p class="edu-when">May 2024</p>
+              <h3>Bachelor of Engineering, Electronics and Telecommunication</h3>
+              <p class="edu-school">Pune Institute of Computer Technology, Pune, India</p>
+              <p class="edu-gpa">GPA 8.81 / 10</p>
+            </article>
+          </div>
+
+          <h3 class="subhead">Publications</h3>
+          <ul class="pubs">
+            <li>
+              <p class="pub-title">Coder’s Battle Room Using Cloud Computing</p>
+              <p class="pub-meta">2024 OPJU International Technology Conference (OTCON) on Smart Computing for Innovation and Advancement in Industry 4.0. Published in IEEE Xplore, September 2024.</p>
+            </li>
+            <li>
+              <p class="pub-title">Efficient Backend Development with Spring Boot: A Comprehensive Overview</p>
+              <p class="pub-meta">International Journal for Research in Applied Science &amp; Engineering Technology, November 2023.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact" aria-labelledby="h-contact">
+          <h2 id="h-contact">Let’s talk</h2>
+          <p class="contact-lead">I’m graduating in December 2026 and looking for a full-time software engineer role. Email me and I’ll send my resume.</p>
+
+          <div class="contact-card">
+            <p class="contact-mail" id="mail-text">hubli.s@northeastern.edu</p>
+            <div class="actions">
+              <a class="btn" href="mailto:hubli.s@northeastern.edu">Send an email</a>
+              <button class="btn btn-quiet" type="button" id="copy-email">Copy email address</button>
+              <a class="btn btn-quiet" href="https://www.linkedin.com/in/sushmita-hubli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="btn btn-quiet" href="https://github.com/Sushmita-Hubli" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <p>© 2026 Sushmita Hubli. Boston, MA.</p>
+          <a href="#top">Back to top</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <figure>
+      <img id="lb-img" src="" alt="">
+      <figcaption id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Close photo viewer">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    var $ = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Theme toggle ---------- */
+    var root = document.documentElement;
+    var themeBtn = $('#theme-btn');
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      themeBtn.setAttribute('aria-pressed', String(t === 'dark'));
+      $('.theme-label', themeBtn).textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+    }
+    applyTheme(root.getAttribute('data-theme') || 'light');
+    themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    /* ---------- Mobile menu ---------- */
+    var side = $('#side');
+    var menuBtn = $('#menu-btn');
+    menuBtn.addEventListener('click', function () {
+      var open = side.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    $$('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        side.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ---------- Scroll spy ---------- */
+    var spyLinks = {};
+    $$('[data-spy]').forEach(function (a) { spyLinks[a.getAttribute('data-spy')] = a; });
+    if ('IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            Object.keys(spyLinks).forEach(function (k) { spyLinks[k].removeAttribute('aria-current'); });
+            var link = spyLinks[e.target.id];
+            if (link) { link.setAttribute('aria-current', 'true'); }
+          }
+        });
+      }, { rootMargin: '-35% 0px -60% 0px' });
+      Object.keys(spyLinks).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) { spy.observe(el); }
+      });
+    }
+
+    /* ---------- Tabs (experience and projects) ---------- */
+    $$('[data-tabs]').forEach(function (group) {
+      var tabs = $$('[role="tab"]', group);
+      function select(tab, focus) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', String(on));
+          t.tabIndex = on ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) { panel.hidden = !on; }
+        });
+        if (focus) { tab.focus(); }
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { select(tab, false); });
+        tab.addEventListener('keydown', function (e) {
+          var n = tabs.length, idx = null;
+          if (e.key === 'ArrowRight') { idx = (i + 1) % n; }
+          if (e.key === 'ArrowLeft') { idx = (i - 1 + n) % n; }
+          if (e.key === 'Home') { idx = 0; }
+          if (e.key === 'End') { idx = n - 1; }
+          if (idx !== null) { e.preventDefault(); select(tabs[idx], true); }
+        });
+      });
+    });
+
+    /* ---------- Count-up metrics ---------- */
+    var counters = $$('[data-count]');
+    function runCount(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var start = null, dur = 1100;
+      function step(ts) {
+        if (start === null) { start = ts; }
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased);
+        if (p < 1) { requestAnimationFrame(step); }
+      }
+      requestAnimationFrame(step);
+    }
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      counters.forEach(function (el) { el.textContent = '0'; });
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); }
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(function (el) { cio.observe(el); });
+    }
+
+    /* ---------- Skill filter ---------- */
+    var skills = $$('#skill-cloud li');
+    var statusEl = $('#filter-status');
+    var filterBtns = $$('[data-filter]');
+    function applyFilter(cat, label) {
+      var count = 0;
+      skills.forEach(function (li) {
+        var match = cat === 'all' || li.getAttribute('data-cat') === cat;
+        li.classList.toggle('is-dim', !match);
+        li.classList.toggle('is-on', cat !== 'all' && match);
+        if (match) { count++; }
+      });
+      statusEl.textContent = cat === 'all' ? '' : count + ' skills in ' + label;
+    }
+    filterBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        filterBtns.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        applyFilter(b.getAttribute('data-filter'), b.textContent);
+      });
+    });
+
+    /* ---------- Lightbox ---------- */
+    var dlg = $('#lightbox');
+    var lbImg = $('#lb-img');
+    var lbCap = $('#lb-cap');
+    var items = $$('[data-lightbox]');
+    var current = 0;
+    function show(i) {
+      current = (i + items.length) % items.length;
+      var btn = items[current];
+      lbImg.src = btn.getAttribute('data-full');
+      lbImg.alt = $('img', btn).alt;
+      lbCap.textContent = btn.getAttribute('data-caption') + '  (' + (current + 1) + ' of ' + items.length + ')';
+    }
+    items.forEach(function (btn, i) {
+      btn.addEventListener('click', function () {
+        show(i);
+        if (typeof dlg.showModal === 'function') { dlg.showModal(); }
+      });
+    });
+    $('#lb-close').addEventListener('click', function () { dlg.close(); });
+    $('#lb-prev').addEventListener('click', function () { show(current - 1); });
+    $('#lb-next').addEventListener('click', function () { show(current + 1); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) { dlg.close(); } });
+    dlg.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { show(current - 1); }
+      if (e.key === 'ArrowRight') { show(current + 1); }
+    });
+
+    /* ---------- Copy email + toast ---------- */
+    var toast = $('#toast');
+    var toastTimer;
+    function notify(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+    }
+    $('#copy-email').addEventListener('click', function () {
+      var text = $('#mail-text').textContent.trim();
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); notify('Email address copied'); } catch (e) { notify('Press Ctrl+C to copy'); }
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { notify('Email address copied'); }, fallback);
+      } else { fallback(); }
+    });
+
+    /* ---------- Brand image fallback ---------- */
+    $$('img[data-fallback]').forEach(function (img) {
+      function fail() {
+        img.hidden = true;
+        var fb = img.parentNode.querySelector('.brand-fallback');
+        if (fb) { fb.hidden = false; }
+      }
+      img.addEventListener('error', fail);
+      if (img.complete && img.naturalWidth === 0) { fail(); }
+    });
+  })();
+  </script>
 </body>
 </html>
