@@ -824,3 +824,39 @@ button { font: inherit; color: inherit; }
   .intro-photo { order: -1; width: 160px; }
   .intro-photo img { border-radius: 20px; }
 }
+
+
+/* ---------- Course detail (expandable) ---------- */
+.course-detail { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+.course-detail summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--accent-text);
+  list-style-position: inside;
+}
+.course-detail summary:hover { color: var(--ink); }
+.topic-list { margin-top: 14px; display: grid; gap: 0; counter-reset: topic; }
+.topic-list li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 12px 0 12px 40px;
+  border-top: 1px solid var(--line);
+  counter-increment: topic;
+}
+.topic-list li::before {
+  content: counter(topic);
+  position: absolute;
+  left: 0; top: 12px;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: .8rem;
+  font-weight: 700;
+}
+.topic-list strong { font-weight: 700; }
+.topic-list span { font-size: .93rem; color: var(--muted); max-width: 46em; }
+.topic-list em { font-style: normal; font-size: .85rem; font-weight: 600; color: var(--accent-text); }
