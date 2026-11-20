@@ -67,12 +67,6 @@
           </ul>
         </nav>
 
-        <button class="search-btn" id="palette-btn" type="button" aria-haspopup="dialog">
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span>Quick search</span>
-          <kbd id="palette-kbd">Ctrl K</kbd>
-        </button>
-
         <div class="side-foot">
           <ul class="social">
             <li>
@@ -188,6 +182,8 @@
                 <button type="button" data-cmd="skills">skills</button>
                 <button type="button" data-cmd="projects">projects</button>
                 <button type="button" data-cmd="experience">experience</button>
+                <button type="button" data-cmd="education">education</button>
+                <button type="button" data-cmd="publications">publications</button>
                 <button type="button" data-cmd="contact">contact</button>
                 <button type="button" data-cmd="help">help</button>
               </div>
@@ -471,8 +467,8 @@
             <div class="tabpanel" role="tabpanel" id="fit-panel-2" aria-labelledby="fit-tab-2" hidden>
               <figure class="diagram">
                 <div class="trace-bar">
-                  <button class="btn btn-sm" type="button" id="trace-btn">Trace a request</button>
-                  <p class="trace-text" id="trace-text" aria-live="polite">Press the button to follow a request through the system, or click any box to see what it does.</p>
+                  <button class="btn btn-sm" type="button" id="trace-btn">Pause</button>
+                  <p class="trace-text" id="trace-text" aria-live="polite">Live traffic: watch a request travel through the system. Click any box to pause and see what it does.</p>
                 </div>
                 <svg viewBox="0 0 570 292" role="img" aria-labelledby="fit-title fit-desc">
                   <title id="fit-title">FitFlow architecture</title>
@@ -506,8 +502,9 @@
 
                   <g class="node" data-id="db" tabindex="0" role="button" aria-label="PostgreSQL and MongoDB store the data for the services." data-info="PostgreSQL and MongoDB store the data for the services."><rect x="30" y="236" width="320" height="42" rx="10"/><text class="t1" x="190" y="262" text-anchor="middle">PostgreSQL and MongoDB</text></g>
                   <g class="node hl" data-id="gemini" tabindex="0" role="button" aria-label="The Google Gemini API generates the AI recommendations." data-info="The Google Gemini API generates the AI recommendations."><rect x="410" y="236" width="130" height="42" rx="10"/><text class="t1" x="475" y="262" text-anchor="middle">Google Gemini API</text></g>
+                  <g class="packets" id="fit-packets" pointer-events="none"></g>
                 </svg>
-                <figcaption>Solid lines are REST calls. The double arrow is asynchronous messaging over Kafka. The walkthrough is a simplified illustration.</figcaption>
+                <figcaption>Solid lines are REST calls. The double arrow is asynchronous messaging over Kafka. The live traffic is a simplified illustration.</figcaption>
               </figure>
             </div>
           </article>
@@ -542,8 +539,8 @@
             <div class="tabpanel" role="tabpanel" id="cc-panel-2" aria-labelledby="cc-tab-2" hidden>
               <figure class="diagram">
                 <div class="trace-bar">
-                  <button class="btn btn-sm" type="button" id="pipe-btn">Run pipeline</button>
-                  <p class="trace-text" id="pipe-text" aria-live="polite">Press the button to watch a build move through the pipeline.</p>
+                  <button class="btn btn-sm" type="button" id="pipe-btn">Pause</button>
+                  <p class="trace-text" id="pipe-text" aria-live="polite">Live build: watch a change move through the pipeline, again and again.</p>
                 </div>
                 <ol class="pipeline" aria-label="CI/CD flow">
                   <li><strong>Code change</strong><span>Starts the pipeline</span></li>
@@ -551,26 +548,11 @@
                   <li class="hl"><strong>Ephemeral Docker worker</strong><span>Builds and tests, then is discarded</span></li>
                   <li><strong>AWS</strong><span>Deploys to EC2 with RDS for data</span></li>
                 </ol>
+                <div class="pipe-packets" id="pipe-packets" aria-hidden="true"></div>
                 <figcaption>Workers are lightweight Docker images, so there is no idle build infrastructure to pay for.</figcaption>
               </figure>
             </div>
           </article>
-
-          <div class="gh-live" id="gh-live">
-            <div class="gh-head">
-              <div>
-                <h3>Live from GitHub</h3>
-                <p class="gh-sub" id="gh-sub">Loading my latest activity…</p>
-              </div>
-              <a class="btn btn-sm btn-quiet" href="https://github.com/Sushmita-Hubli" target="_blank" rel="noopener noreferrer">Open my profile</a>
-            </div>
-            <ul class="gh-stats" id="gh-stats" hidden>
-              <li><strong id="gh-repos-count">0</strong><span>public repositories</span></li>
-              <li><strong id="gh-followers">0</strong><span>followers</span></li>
-              <li><strong id="gh-since">-</strong><span>on GitHub since</span></li>
-            </ul>
-            <ul class="gh-repos" id="gh-repos"></ul>
-          </div>
 
           <a class="more" href="https://github.com/Sushmita-Hubli" target="_blank" rel="noopener noreferrer">See more code on my GitHub profile</a>
         </section>
@@ -713,7 +695,7 @@
         <!-- CONTACT -->
         <section class="section contact" id="contact" aria-labelledby="h-contact">
           <h2 id="h-contact">Let’s build something together</h2>
-          <p class="contact-lead">I’m graduating in December 2026 and looking for a full-time software engineer role in backend, full-stack or cloud work. Email is the fastest way to reach me, and I’ll send my resume on request.</p>
+          <p class="contact-lead">I’m graduating in December 2026 and looking for a full-time software engineer role in backend, full-stack or cloud work. I’d love to hear from you.</p>
 
           <div class="contact-card">
             <p class="contact-mail" id="mail-text">hubli.s@northeastern.edu</p>
@@ -722,31 +704,8 @@
               <button class="btn btn-quiet" type="button" id="copy-email">Copy email address</button>
               <a class="btn btn-quiet" href="https://www.linkedin.com/in/sushmita-hubli/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a class="btn btn-quiet" href="https://github.com/Sushmita-Hubli" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a class="btn btn-quiet" id="resume-link" href="mailto:hubli.s@northeastern.edu?subject=Resume%20request&amp;body=Hi%20Sushmita%2C%0A%0AI%E2%80%99d%20like%20to%20request%20your%20resume.%0A%0AThank%20you">Request my resume</a>
             </div>
           </div>
-
-          <form class="msg-form" id="msg-form" novalidate>
-            <h3>Or send me a message</h3>
-            <div class="msg-row">
-              <label>Your name
-                <input type="text" id="msg-name" autocomplete="name" required>
-                <span class="field-error" data-for="msg-name" hidden>Please add your name.</span>
-              </label>
-              <label>Your email
-                <input type="email" id="msg-email" autocomplete="email" required>
-                <span class="field-error" data-for="msg-email" hidden>Please add a valid email address.</span>
-              </label>
-            </div>
-            <label>Message
-              <textarea id="msg-body" rows="4" required></textarea>
-              <span class="field-error" data-for="msg-body" hidden>Please write a short message.</span>
-            </label>
-            <div class="msg-actions">
-              <button class="btn" type="submit">Open in my email app</button>
-              <p class="form-hint">This opens your email app with the message ready to send.</p>
-            </div>
-          </form>
         </section>
 
         <footer class="footer">
@@ -772,18 +731,6 @@
     <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Next photo">
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-  </dialog>
-
-  <dialog class="palette" id="palette" aria-label="Quick search">
-    <div class="palette-box">
-      <div class="palette-input">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <input type="text" id="palette-q" placeholder="Jump to a section, project or link" autocomplete="off" aria-controls="palette-list" aria-label="Search">
-        <kbd>Esc</kbd>
-      </div>
-      <ul class="palette-list" id="palette-list" role="listbox" aria-label="Results"></ul>
-      <p class="palette-hint">Use the arrow keys and Enter</p>
-    </div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1037,243 +984,171 @@
       b.addEventListener('click', function () { skillInput.value = ''; });
     });
 
-    /* ---------- FitFlow: click a box, or trace a request ---------- */
-    var nodes = {}, wires = {};
-    $$('.diagram .node[data-id]').forEach(function (g) { nodes[g.getAttribute('data-id')] = g; });
-    $$('.diagram [data-w]').forEach(function (w) { wires[w.getAttribute('data-w')] = w; });
-    var traceText = $('#trace-text'), traceBtn = $('#trace-btn'), traceTimer = null;
-    function clearTrace() {
-      Object.keys(nodes).forEach(function (k) { nodes[k].classList.remove('is-active'); });
-      Object.keys(wires).forEach(function (k) { wires[k].classList.remove('is-active'); });
+    /* ---------- Live diagrams: data flowing along the arrows ---------- */
+    function makeLive(container, cycle, draw) {
+      var t = 0, last = null, raf = null, paused = false, inView = false;
+      function frame(now) {
+        if (last === null) { last = now; }
+        var dt = Math.min((now - last) / 1000, 0.1); last = now;
+        if (!paused) { t = (t + dt) % cycle; }
+        draw(t);
+        raf = requestAnimationFrame(frame);
+      }
+      function start() { if (!raf && !reduceMotion) { last = null; raf = requestAnimationFrame(frame); } }
+      function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+      function sync() { if (inView && !document.hidden) { start(); } else { stop(); } }
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) { inView = es[0].isIntersecting; sync(); }, { threshold: 0.15 }).observe(container);
+      }
+      document.addEventListener('visibilitychange', sync);
+      return {
+        setPaused: function (p) { paused = p; },
+        isPaused: function () { return paused; },
+        redraw: function () { draw(t); }
+      };
     }
-    function stopTrace() {
-      if (traceTimer) { clearTimeout(traceTimer); traceTimer = null; }
-      traceBtn.disabled = false;
-      traceBtn.textContent = 'Trace a request';
-    }
-    Object.keys(nodes).forEach(function (k) {
-      var g = nodes[k];
-      function show() { stopTrace(); clearTrace(); g.classList.add('is-active'); traceText.textContent = g.getAttribute('data-info'); }
-      g.addEventListener('click', show);
-      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); } });
-    });
-    var traceSteps = [
-      { n: ['client'], w: ['w-client-gw'], t: '1. The React client sends the request, with the user’s token, to the API gateway.' },
-      { n: ['gateway', 'keycloak'], w: ['w-gw-kc'], t: '2. The gateway checks the token with Keycloak (OAuth2 and JWT) before letting anything through.' },
-      { n: ['activity'], w: ['w-gw-act'], t: '3. It routes the call to the Activity service, which it finds through Eureka.' },
-      { n: ['db'], w: ['w-act-db'], t: '4. The Activity service saves the activity in the database.' },
-      { n: ['activity', 'ai'], w: ['w-kafka'], t: '5. It publishes an event to Kafka, so the AI service can react without slowing the request down.' },
-      { n: ['ai', 'gemini'], w: ['w-ai-gem'], t: '6. The AI service asks the Google Gemini API for a fitness recommendation.' }
-    ];
-    traceBtn.addEventListener('click', function () {
-      stopTrace();
-      var i = 0;
-      traceBtn.disabled = true;
-      traceBtn.textContent = 'Tracing…';
-      (function next() {
-        clearTrace();
-        if (i >= traceSteps.length) {
-          traceText.textContent = 'Done. That is how one request moves through FitFlow.';
-          stopTrace();
-          traceBtn.textContent = 'Trace again';
-          return;
-        }
-        var s = traceSteps[i++];
-        s.n.forEach(function (id) { if (nodes[id]) { nodes[id].classList.add('is-active'); } });
-        s.w.forEach(function (id) { if (wires[id]) { wires[id].classList.add('is-active'); } });
-        traceText.textContent = s.t;
-        traceTimer = setTimeout(next, 2100);
-      })();
-    });
+    function easeInOut(u) { return 0.5 - 0.5 * Math.cos(Math.PI * u); }
 
-    /* ---------- CodeChronicles: run the pipeline ---------- */
-    var pipeItems = $$('.pipeline li'), pipeBtn = $('#pipe-btn'), pipeText = $('#pipe-text'), pipeTimer = null;
-    var pipeSteps = [
-      'Code change pushed. The pipeline starts.',
-      'Jenkins picks up the job and asks for a worker.',
-      'A lightweight Docker worker spins up, builds the code and runs the tests.',
-      'The build is deployed to AWS: the app on EC2, with RDS for data.'
-    ];
-    pipeBtn.addEventListener('click', function () {
-      if (pipeTimer) { clearTimeout(pipeTimer); }
-      pipeItems.forEach(function (li) { li.classList.remove('running', 'done', 'discarded'); });
-      pipeBtn.disabled = true;
-      pipeBtn.textContent = 'Running…';
-      var i = 0;
-      (function step() {
-        if (i > 0) { pipeItems[i - 1].classList.remove('running'); pipeItems[i - 1].classList.add('done'); }
-        if (i >= pipeItems.length) {
-          pipeItems[2].classList.add('discarded');
-          pipeText.textContent = 'Done. The Docker worker was discarded, so no build server is left idle.';
-          pipeBtn.disabled = false;
-          pipeBtn.textContent = 'Run again';
-          return;
-        }
-        pipeItems[i].classList.add('running');
-        pipeText.textContent = pipeSteps[i];
-        i++;
-        pipeTimer = setTimeout(step, 1700);
-      })();
-    });
-
-    /* ---------- Live data from GitHub ---------- */
+    /* FitFlow: a request travels through the architecture, over and over */
     (function () {
-      var USER = 'Sushmita-Hubli';
-      var sub = $('#gh-sub'), list = $('#gh-repos'), stats = $('#gh-stats');
-      var LANG = { Java: '#b07219', TypeScript: '#3178c6', JavaScript: '#f1e05a', Python: '#3572A5', HTML: '#e34c26', CSS: '#563d7c', 'C++': '#f34b7d', C: '#555555', 'C#': '#178600', Shell: '#89e051', Dockerfile: '#384d54' };
-      for (var s = 0; s < 4; s++) { var sk = document.createElement('li'); sk.className = 'skeleton'; list.appendChild(sk); }
-
-      function ago(iso) {
-        var sec = (Date.now() - new Date(iso).getTime()) / 1000;
-        var units = [[31536000, 'year'], [2592000, 'month'], [604800, 'week'], [86400, 'day'], [3600, 'hour'], [60, 'minute']];
-        for (var i = 0; i < units.length; i++) {
-          if (sec >= units[i][0]) { var n = Math.floor(sec / units[i][0]); return n + ' ' + units[i][1] + (n > 1 ? 's' : '') + ' ago'; }
+      var svg = $('#fit-panel-2 svg');
+      if (!svg) { return; }
+      var NS = 'http://www.w3.org/2000/svg';
+      var nodes = {}, wires = {}, manual = null, lastText = '';
+      $$('.node[data-id]', svg).forEach(function (g) { nodes[g.getAttribute('data-id')] = g; });
+      $$('[data-w]', svg).forEach(function (w) { wires[w.getAttribute('data-w')] = w; });
+      var layer = $('#fit-packets'), textEl = $('#trace-text'), btn = $('#trace-btn');
+      var S2 = '2. The gateway checks the token with Keycloak (OAuth2 and JWT) before letting anything through.';
+      var segs = [
+        { w: 'w-client-gw', s: 0.2, e: 1.3, n: ['client', 'gateway'], text: '1. The React client sends the request, with the user’s token, to the API gateway.' },
+        { w: 'w-gw-kc', s: 1.5, e: 2.5, n: ['gateway', 'keycloak'], token: 1, text: S2 },
+        { w: 'w-gw-kc', s: 2.6, e: 3.4, n: ['gateway', 'keycloak'], token: 1, rev: 1, text: '2. Keycloak confirms the token is valid, and the gateway lets the request through.' },
+        { w: 'w-gw-act', s: 3.6, e: 4.7, n: ['gateway', 'activity'], text: '3. It routes the call to the Activity service, which it finds through Eureka.' },
+        { w: 'w-act-db', s: 4.9, e: 5.9, n: ['activity', 'db'], text: '4. The Activity service saves the activity in the database.' },
+        { w: 'w-kafka', s: 6.1, e: 7.1, n: ['activity', 'ai'], text: '5. It publishes an event to Kafka, so the AI service can react without slowing the request down.' },
+        { w: 'w-ai-gem', s: 7.3, e: 8.4, n: ['ai', 'gemini'], text: '6. The AI service asks the Google Gemini API for a fitness recommendation.' },
+        { w: 'w-ai-gem', s: 8.5, e: 9.3, n: ['ai', 'gemini'], rev: 1, text: '6. Gemini sends the recommendation back to the AI service.' },
+        { w: 'w-gw-user', s: 9.6, e: 10.6, n: ['gateway', 'user'], text: 'Meanwhile, another request is routed to the User service…' },
+        { w: 'w-user-db', s: 10.7, e: 11.7, n: ['user', 'db'], text: '…which reads the user’s profile from the database.' }
+      ];
+      segs.forEach(function (s) {
+        s.el = wires[s.w]; s.len = 0; s.dots = [];
+        for (var i = 0; i < 3; i++) {
+          var c = document.createElementNS(NS, 'circle');
+          c.setAttribute('r', String(5 - i * 1.1)); c.setAttribute('opacity', '0');
+          c.setAttribute('class', 'pk-c' + (s.token ? ' token' : ''));
+          layer.appendChild(c); s.dots.push(c);
         }
-        return 'just now';
-      }
-      function fail() {
-        list.innerHTML = '';
-        sub.textContent = 'Live data is not available right now. Everything is on my GitHub profile.';
-      }
-      function render(user, repos) {
-        list.innerHTML = '';
-        $('#gh-repos-count').textContent = user.public_repos;
-        $('#gh-followers').textContent = user.followers;
-        $('#gh-since').textContent = new Date(user.created_at).getFullYear();
-        stats.hidden = false;
-        var own = repos.filter(function (r) { return !r.fork; })
-          .sort(function (a, b) { return new Date(b.pushed_at) - new Date(a.pushed_at); }).slice(0, 4);
-        if (!own.length) { sub.textContent = 'No public repositories to show yet.'; return; }
-        sub.textContent = 'Latest push: ' + own[0].name + ', ' + ago(own[0].pushed_at);
-        own.forEach(function (r) {
-          var li = document.createElement('li');
-          var a = document.createElement('a');
-          a.className = 'gh-repo'; a.href = r.html_url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-          var name = document.createElement('strong'); name.textContent = r.name;
-          var desc = document.createElement('span'); desc.className = 'gh-desc'; desc.textContent = r.description || 'No description yet.';
-          var meta = document.createElement('span'); meta.className = 'gh-meta';
-          if (r.language) {
-            var lang = document.createElement('span'); lang.className = 'gh-lang';
-            var dot = document.createElement('i'); dot.style.setProperty('--lc', LANG[r.language] || '#8892a6');
-            lang.appendChild(dot); lang.appendChild(document.createTextNode(r.language)); meta.appendChild(lang);
+      });
+      function draw(t) {
+        var nodeOn = {}, wireOn = {}, current = null;
+        segs.forEach(function (s) {
+          if (!s.len) { s.len = s.el.getTotalLength(); }
+          var u = (t - s.s) / (s.e - s.s);
+          s.dots.forEach(function (c, i) {
+            var uu = u - i * 0.12;
+            if (manual || uu < 0 || uu > 1) { c.setAttribute('opacity', '0'); return; }
+            var p = easeInOut(uu);
+            var pt = s.el.getPointAtLength((s.rev ? 1 - p : p) * s.len);
+            c.setAttribute('cx', pt.x.toFixed(1)); c.setAttribute('cy', pt.y.toFixed(1));
+            c.setAttribute('opacity', (1 - i * 0.32).toFixed(2));
+          });
+          if (!manual && u >= 0 && u <= 1.1) {
+            s.n.forEach(function (id) { nodeOn[id] = 1; });
+            wireOn[s.w] = 1; current = s;
           }
-          if (r.stargazers_count) { var st = document.createElement('span'); st.textContent = r.stargazers_count + (r.stargazers_count === 1 ? ' star' : ' stars'); meta.appendChild(st); }
-          var up = document.createElement('span'); up.textContent = 'Updated ' + ago(r.pushed_at); meta.appendChild(up);
-          a.appendChild(name); a.appendChild(desc); a.appendChild(meta); li.appendChild(a); list.appendChild(li);
         });
+        Object.keys(nodes).forEach(function (k) { nodes[k].classList.toggle('is-active', manual ? manual === k : !!nodeOn[k]); });
+        Object.keys(wires).forEach(function (k) { wires[k].classList.toggle('is-active', !manual && !!wireOn[k]); });
+        if (!manual && current && current.text !== lastText) { lastText = current.text; textEl.textContent = current.text; }
       }
-      try {
-        var cached = JSON.parse(sessionStorage.getItem('gh-cache-v1'));
-        if (cached && Date.now() - cached.t < 600000) { render(cached.u, cached.r); return; }
-      } catch (e) {}
-      function get(url) { return fetch(url, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) { if (!r.ok) { throw new Error('bad'); } return r.json(); }); }
-      Promise.all([get('https://api.github.com/users/' + USER), get('https://api.github.com/users/' + USER + '/repos?sort=pushed&per_page=30')])
-        .then(function (res) {
-          try { sessionStorage.setItem('gh-cache-v1', JSON.stringify({ t: Date.now(), u: res[0], r: res[1] })); } catch (e) {}
-          render(res[0], res[1]);
-        }).catch(fail);
+      var live = makeLive($('#fit-panel-2 .diagram'), 12.2, draw);
+      function setBtn() { btn.textContent = live.isPaused() ? 'Resume' : 'Pause'; }
+      btn.addEventListener('click', function () {
+        if (live.isPaused()) { manual = null; lastText = ''; live.setPaused(false); } else { live.setPaused(true); }
+        setBtn(); live.redraw();
+      });
+      Object.keys(nodes).forEach(function (k) {
+        var g = nodes[k];
+        function show() { manual = k; live.setPaused(true); setBtn(); textEl.textContent = g.getAttribute('data-info'); live.redraw(); }
+        g.addEventListener('click', show);
+        g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); } });
+      });
+      if (reduceMotion) { btn.hidden = true; textEl.textContent = 'Click any box to see what it does.'; }
     })();
 
-    /* ---------- Message form (opens the visitor's email app) ---------- */
-    var form = $('#msg-form');
-    var checks = [
-      ['msg-name', function (v) { return v.trim().length > 1; }],
-      ['msg-email', function (v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim()); }],
-      ['msg-body', function (v) { return v.trim().length > 4; }]
-    ];
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var ok = true;
-      checks.forEach(function (c) {
-        var el = $('#' + c[0]);
-        var good = c[1](el.value);
-        $('.field-error[data-for="' + c[0] + '"]').hidden = good;
-        el.setAttribute('aria-invalid', String(!good));
-        if (!good) { ok = false; }
+    /* CodeChronicles: a build flows through the pipeline, over and over */
+    (function () {
+      var fig = $('#cc-panel-2 .diagram');
+      var lis = $$('#cc-panel-2 .pipeline li');
+      var layer = $('#pipe-packets'), btn = $('#pipe-btn'), textEl = $('#pipe-text');
+      if (!fig || lis.length < 4) { return; }
+      lis.forEach(function (li) { var s = document.createElement('small'); s.className = 'stat'; li.appendChild(s); li._stat = s; });
+      var bar = document.createElement('em'); bar.className = 'bar';
+      var fill = document.createElement('b'); bar.appendChild(fill); lis[2].appendChild(bar);
+      var segs = [{ i: 0, s: 0.9, e: 1.9 }, { i: 1, s: 2.9, e: 3.9 }, { i: 2, s: 8.2, e: 9.1 }];
+      segs.forEach(function (s) {
+        s.dots = [];
+        for (var k = 0; k < 3; k++) { var d = document.createElement('i'); d.className = 'pk'; d.style.setProperty('--sz', (12 - k * 2.5) + 'px'); layer.appendChild(d); s.dots.push(d); }
       });
-      if (!ok) { var first = $('[aria-invalid="true"]', form); if (first) { first.focus(); } return; }
-      var name = $('#msg-name').value.trim(), email = $('#msg-email').value.trim(), msg = $('#msg-body').value.trim();
-      var subject = encodeURIComponent('Portfolio message from ' + name);
-      var body = encodeURIComponent(msg + '\n\nFrom: ' + name + ' (' + email + ')');
-      notify('Opening your email app');
-      window.location.href = 'mailto:hubli.s@northeastern.edu?subject=' + subject + '&body=' + body;
-    });
+      function point(i, p) {
+        var f = fig.getBoundingClientRect(), a = lis[i].getBoundingClientRect(), b = lis[i + 1].getBoundingClientRect();
+        var vertical = b.top >= a.bottom - 4 && Math.abs((a.left + a.width / 2) - (b.left + b.width / 2)) < a.width;
+        var x1, y1, x2, y2;
+        if (vertical) { x1 = a.left + a.width / 2; y1 = a.bottom - 6; x2 = b.left + b.width / 2; y2 = b.top + 6; }
+        else { x1 = a.left + a.width * 0.72; y1 = a.top + a.height / 2; x2 = b.left + b.width * 0.28; y2 = b.top + b.height / 2; }
+        return { x: x1 + (x2 - x1) * p - f.left, y: y1 + (y2 - y1) * p - f.top };
+      }
+      var lastText = '';
+      function draw(t) {
+        var st = ['idle', 'idle', 'idle', 'idle'], stat = ['', '', '', ''], prog = 0, txt = '';
+        if (t < 1.0) { st[0] = 'running'; stat[0] = 'Pushing code…'; txt = 'A code change is pushed. The pipeline starts.'; }
+        else { st[0] = 'done'; stat[0] = 'Pushed'; }
+        if (t >= 1.9 && t < 3.0) { st[1] = 'running'; stat[1] = 'Asking for a worker…'; txt = 'Jenkins picks up the job and asks for a worker.'; }
+        else if (t >= 3.0) { st[1] = 'done'; stat[1] = 'Worker requested'; }
+        if (t >= 3.9) {
+          if (t < 5.0) { st[2] = 'running'; stat[2] = 'Spinning up…'; prog = 0.04; txt = 'A lightweight Docker worker spins up.'; }
+          else if (t < 6.9) { st[2] = 'running'; stat[2] = 'Building'; prog = 0.04 + 0.56 * ((t - 5) / 1.9); txt = 'The worker builds the code.'; }
+          else if (t < 8.2) { st[2] = 'running'; stat[2] = 'Running tests'; prog = 0.6 + 0.4 * ((t - 6.9) / 1.3); txt = 'It runs the tests.'; }
+          else if (t < 9.6) { st[2] = 'done'; stat[2] = 'Tests passed'; prog = 1; txt = 'The tests pass, and the build moves on to AWS.'; }
+          else { st[2] = 'discarded'; stat[2] = 'Worker discarded'; prog = 1; }
+        }
+        if (t >= 9.1 && t < 10.4) { st[3] = 'running'; stat[3] = 'Deploying…'; txt = 'The build is deployed to AWS: the app on EC2, with RDS for data.'; }
+        else if (t >= 10.4) { st[3] = 'done'; stat[3] = 'Live on EC2'; txt = 'Deployed. The worker is already gone, so no build server sits idle.'; }
+        lis.forEach(function (li, i) {
+          li.classList.toggle('running', st[i] === 'running');
+          li.classList.toggle('done', st[i] === 'done');
+          li.classList.toggle('discarded', st[i] === 'discarded');
+          if (li._stat.textContent !== stat[i]) { li._stat.textContent = stat[i]; }
+        });
+        fill.style.width = (prog * 100).toFixed(1) + '%';
+        bar.style.opacity = t >= 3.9 ? '1' : '0';
+        segs.forEach(function (s) {
+          var u = (t - s.s) / (s.e - s.s);
+          s.dots.forEach(function (d, k) {
+            var uu = u - k * 0.1;
+            if (uu < 0 || uu > 1) { d.style.opacity = '0'; return; }
+            var pt = point(s.i, easeInOut(uu));
+            d.style.transform = 'translate(' + pt.x.toFixed(1) + 'px,' + pt.y.toFixed(1) + 'px)';
+            d.style.opacity = (1 - k * 0.3).toFixed(2);
+          });
+        });
+        if (txt && txt !== lastText) { lastText = txt; textEl.textContent = txt; }
+      }
+      var live = makeLive(fig, 12.8, draw);
+      btn.addEventListener('click', function () {
+        live.setPaused(!live.isPaused());
+        btn.textContent = live.isPaused() ? 'Resume' : 'Pause';
+      });
+      if (reduceMotion) { btn.hidden = true; textEl.textContent = 'Workers are discarded after every build, so nothing sits idle.'; }
+    })();
 
-    /* ---------- Quick search (Ctrl or Cmd + K) ---------- */
-    var pal = $('#palette'), palQ = $('#palette-q'), palList = $('#palette-list'), palBtn = $('#palette-btn');
-    $('#palette-kbd').textContent = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? '⌘ K' : 'Ctrl K';
+    /* ---------- Small helpers used by the terminal ---------- */
     function go(id) {
       var el = document.getElementById(id);
       if (el) { el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); }
     }
-    function openTab(id) { var t = $('#tab-' + id); if (t) { t.click(); } go('experience'); }
     function open(url) { window.open(url, '_blank', 'noopener'); }
-    var cmds = [
-      { g: 'Go to', l: 'Intro', run: function () { go('intro'); } },
-      { g: 'Go to', l: 'About', run: function () { go('about'); } },
-      { g: 'Go to', l: 'Experience', run: function () { go('experience'); } },
-      { g: 'Go to', l: 'Projects', run: function () { go('projects'); } },
-      { g: 'Go to', l: 'Skills', run: function () { go('skills'); } },
-      { g: 'Go to', l: 'Education', run: function () { go('education'); } },
-      { g: 'Go to', l: 'Publications', run: function () { go('publications'); } },
-      { g: 'Go to', l: 'Contact', run: function () { go('contact'); } },
-      { g: 'Experience', l: 'Savor, Software Engineer Co-op', run: function () { openTab('savor'); } },
-      { g: 'Experience', l: 'Northeastern, Teaching and Instructional Assistant', run: function () { openTab('neu'); } },
-      { g: 'Experience', l: 'Maleta, Software Engineer', run: function () { openTab('maleta'); } },
-      { g: 'Project', l: 'FitFlow code on GitHub', run: function () { open('https://github.com/Sushmita-Hubli/FitFlow'); } },
-      { g: 'Project', l: 'CodeChronicles code on GitHub', run: function () { open('https://github.com/Sushmita-Hubli/DAO_impl_CodeChronicles'); } },
-      { g: 'Link', l: 'GitHub profile', run: function () { open('https://github.com/Sushmita-Hubli'); } },
-      { g: 'Link', l: 'LinkedIn profile', run: function () { open('https://www.linkedin.com/in/sushmita-hubli/'); } },
-      { g: 'Link', l: 'Send an email', run: function () { window.location.href = 'mailto:hubli.s@northeastern.edu'; } },
-      { g: 'Action', l: 'Request my resume', run: function () { window.location.href = $('#resume-link').getAttribute('href'); } },
-      { g: 'Action', l: 'Copy email address', run: function () { $('#copy-email').click(); } },
-      { g: 'Action', l: 'Switch between light and dark mode', run: function () { themeBtn.click(); } }
-    ];
-    var shown = [], sel = 0;
-    function renderPalette() {
-      var q = palQ.value.trim().toLowerCase();
-      shown = cmds.filter(function (c) { return !q || (c.g + ' ' + c.l).toLowerCase().indexOf(q) > -1; });
-      if (sel >= shown.length) { sel = 0; }
-      palList.innerHTML = '';
-      if (!shown.length) {
-        var none = document.createElement('li'); none.className = 'palette-empty'; none.textContent = 'Nothing found. Try “projects” or “email”.'; palList.appendChild(none); return;
-      }
-      shown.forEach(function (c, i) {
-        var li = document.createElement('li');
-        li.className = 'palette-item'; li.setAttribute('role', 'option'); li.setAttribute('aria-selected', String(i === sel));
-        var l = document.createElement('span'); l.textContent = c.l;
-        var g = document.createElement('span'); g.className = 'pg'; g.textContent = c.g;
-        li.appendChild(l); li.appendChild(g);
-        li.addEventListener('mousemove', function () { if (sel !== i) { sel = i; markSel(); } });
-        li.addEventListener('click', function () { choose(i); });
-        palList.appendChild(li);
-      });
-    }
-    function markSel() {
-      $$('.palette-item', palList).forEach(function (li, i) {
-        li.setAttribute('aria-selected', String(i === sel));
-        if (i === sel) { li.scrollIntoView({ block: 'nearest' }); }
-      });
-    }
-    function choose(i) { var c = shown[i]; if (!c) { return; } pal.close(); setTimeout(c.run, 60); }
-    function openPalette() {
-      if (typeof pal.showModal !== 'function') { return; }
-      sel = 0; palQ.value = ''; renderPalette(); pal.showModal(); palQ.focus();
-    }
-    palBtn.addEventListener('click', function () { side.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); openPalette(); });
-    palQ.addEventListener('input', function () { sel = 0; renderPalette(); });
-    palQ.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowDown') { e.preventDefault(); if (shown.length) { sel = (sel + 1) % shown.length; markSel(); } }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); if (shown.length) { sel = (sel - 1 + shown.length) % shown.length; markSel(); } }
-      else if (e.key === 'Enter') { e.preventDefault(); choose(sel); }
-    });
-    pal.addEventListener('click', function (e) { if (e.target === pal) { pal.close(); } });
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
-        e.preventDefault();
-        if (pal.open) { pal.close(); } else { openPalette(); }
-      }
-    });
 
     /* =====================================================
        ANIMATED, INTERACTIVE TOUCHES
@@ -1314,7 +1189,7 @@
     })();
 
     /* ---------- Cursor spotlight on cards ---------- */
-    $$('.metrics li, .project, .pub-card, .edu, .gh-stats li, .flow li').forEach(function (el) {
+    $$('.metrics li, .project, .pub-card, .edu, .flow li').forEach(function (el) {
       el.classList.add('spot');
       el.addEventListener('mousemove', function (e) {
         var r = el.getBoundingClientRect();
@@ -1340,19 +1215,20 @@
       var body = $('#term-body'), input = $('#term-input'), formEl = $('#term-form'), termEl = $('#term');
       var history = [], hIdx = 0, auto = { started: false, cancelled: false };
 
-      function scrollDown() { body.scrollTop = body.scrollHeight; }
+      var lastCmd = null;
+      function showLatest() { if (lastCmd) { body.scrollTop = Math.max(0, lastCmd.offsetTop - 12); } }
       function line(text, cls, key) {
         var d = document.createElement('div');
         d.className = 'tl' + (cls ? ' ' + cls : '');
         if (key) { var k = document.createElement('span'); k.className = 'k'; k.textContent = key; d.appendChild(k); d.appendChild(document.createTextNode(' ' + text)); }
         else { d.textContent = text; }
-        body.appendChild(d); scrollDown(); return d;
+        body.appendChild(d); return d;
       }
       function cmdLine(text) {
         var d = document.createElement('div'); d.className = 'tl';
         var ps = document.createElement('span'); ps.className = 'ps'; ps.textContent = '$ ';
         var t = document.createElement('span'); t.textContent = text;
-        d.appendChild(ps); d.appendChild(t); body.appendChild(d); scrollDown(); return t;
+        d.appendChild(ps); d.appendChild(t); body.appendChild(d); lastCmd = d; return t;
       }
       function kv(k, v) { return { k: k, t: v }; }
       function print(lines) { lines.forEach(function (l) { if (typeof l === 'string') { line(l, 'out'); } else if (l.k) { line(l.t, 'out', l.k); } else { line(l.t, l.c); } }); }
@@ -1421,6 +1297,7 @@
         if (!auto.cancelled) { auto.cancelled = true; body.innerHTML = ''; }
         history.push(cmd); hIdx = history.length;
         run(cmd);
+        showLatest();
       }
 
       formEl.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value; input.value = ''; userRun(v); });
@@ -1428,7 +1305,7 @@
         if (e.key === 'ArrowUp' && history.length) { e.preventDefault(); hIdx = Math.max(0, hIdx - 1); input.value = history[hIdx] || ''; }
         else if (e.key === 'ArrowDown' && history.length) { e.preventDefault(); hIdx = Math.min(history.length, hIdx + 1); input.value = history[hIdx] || ''; }
       });
-      $$('#term-chips button').forEach(function (b) { b.addEventListener('click', function () { userRun(b.getAttribute('data-cmd')); }); });
+      $$('#term-chips button').forEach(function (b) { b.addEventListener('click', function () { body.innerHTML = ''; userRun(b.getAttribute('data-cmd')); }); });
       termEl.addEventListener('click', function (e) { if (e.target === body || e.target === termEl) { input.focus({ preventScroll: true }); } });
 
       async function demo() {
