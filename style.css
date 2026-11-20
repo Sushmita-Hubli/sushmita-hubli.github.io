@@ -848,3 +848,48 @@ button { font: inherit; color: inherit; }
   .edu-head { gap: 14px; }
   .edu-logo { width: 60px; height: 60px; border-radius: 12px; }
 }
+
+
+/* ---------- Education logos: identical tiles, logo mark only ---------- */
+.edu-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  overflow: hidden;
+}
+.edu-logo img {
+  flex: none;
+  width: auto;
+  max-width: none;
+  height: var(--h, 60px);
+  padding: 0;
+  object-fit: fill;
+}
+.edu-logo img.crop-neu  { --h: 54px; margin-left: 7px; clip-path: inset(0 61% 0 0); }
+.edu-logo img.crop-pict { --h: 66px; margin-left: 6px; clip-path: inset(0 75% 0 0); }
+.edu-logo .company-fallback { margin: auto; }
+@media (max-width: 560px) {
+  .edu-logo { width: 60px; height: 60px; }
+  .edu-logo img.crop-neu  { --h: 40px; margin-left: 5px; }
+  .edu-logo img.crop-pict { --h: 50px; margin-left: 4px; }
+}
+
+/* ---------- Website photos fill their frames (no gray bars in either theme) ---------- */
+.shot img { object-fit: cover; }
+
+/* ---------- Savor name tile ---------- */
+.company-logo .wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: -.02em;
+  color: #FFFFFF;
+}
+
+
+/* ---------- Savor logo (traced from the LinkedIn logo) ---------- */
+.company-logo .savor-mark { display: block; height: 54px; width: auto; color: #0B0B0F; }
